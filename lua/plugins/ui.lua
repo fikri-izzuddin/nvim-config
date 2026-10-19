@@ -88,6 +88,7 @@ pack.later(function()
             { mode = "n", keys = "<LEADER>f", desc = "+Find" },
             { mode = "n", keys = "<LEADER>g", desc = "+Git" },
             { mode = "n", keys = "<LEADER>h", desc = "+Hunks" },
+            { mode = "n", keys = "<LEADER>p", desc = "+Plugins" },
             { mode = "n", keys = "<LEADER>s", desc = "+Search" },
             { mode = "n", keys = "<LEADER>u", desc = "+UI" },
             { mode = "n", keys = "<LEADER>x", desc = "+Lists" },
