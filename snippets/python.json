@@ -1,0 +1,7 @@
+{
+    "main guard": {
+        "prefix": "ifmain",
+        "body": ["if __name__ == \"__main__\":", "    ${1:main()}"],
+        "description": "if __name__ == '__main__' block"
+    }
+}
