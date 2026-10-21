@@ -12,10 +12,12 @@ each one to an exact commit.
 - Python: `basedpyright` (default) or `ty`, plus `ruff`.
 - Lua: `lua-language-server` and `stylua`.
 - `fzf`, `ripgrep`, and `fd` for the fuzzy finder, search and replace.
+- `lazygit` for the git UI.
 
 ```sh
 uv tool install basedpyright ty ruff
-sudo pacman -S tree-sitter-cli gcc lua-language-server stylua fzf ripgrep fd
+sudo pacman -S tree-sitter-cli gcc lua-language-server \
+    stylua fzf ripgrep fd lazygit
 ```
 
 ## Install
@@ -45,7 +47,7 @@ NVIM_APPNAME=nvim-fikri nvim
 ├── lua
 │   ├── config    options, keymaps, autocmds, vim.pack helpers, terminal
 │   └── plugins   one file per area: ui, editor, treesitter, lsp, completion,
-│                 format, navigation
+│                 format, navigation, git
 ├── after
 │   ├── lsp       per-server overrides (basedpyright, ruff)
 │   └── ftplugin  per-filetype settings (gitcommit)
@@ -106,6 +108,19 @@ Navigation (fzf-lua, nvim-tree, grug-far):
 | `<SPACE>sr` / `<SPACE>sf` | Replace in project / file             |
 | `<SPACE>xd` / `<SPACE>xD` | Diagnostics in file / workspace       |
 | `grr` / `gri`             | References / implementations          |
+
+Git (gitsigns, codediff, lazygit):
+
+| Key                       | Action                              |
+| ------------------------- | ----------------------------------- |
+| `]h` / `[h`               | Next / previous hunk                |
+| `<SPACE>hs` / `<SPACE>hr` | Stage / reset hunk                  |
+| `<SPACE>hp` / `<SPACE>hb` | Preview hunk / blame line           |
+| `<SPACE>ub`               | Toggle inline blame                 |
+| `ih`                      | Hunk text object (operator, visual) |
+| `<SPACE>gd`               | Side-by-side diff                   |
+| `<SPACE>gg`               | Open lazygit                        |
+| `<SPACE>gc` / `<SPACE>gs` | Commits / status picker             |
 
 ## Python
 
