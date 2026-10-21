@@ -6,15 +6,16 @@ each one to an exact commit.
 
 ## Requirements
 
-- Neovim 0.12 or newer, and Git
-- A Nerd Font for icons
-- `tree-sitter-cli` and a C compiler, so nvim-treesitter can build parsers
-- Python: `basedpyright` (default) or `ty`, plus `ruff`
-- Lua: `lua-language-server` and `stylua`
+- Neovim 0.12 or newer, and Git.
+- A Nerd Font for icons.
+- `tree-sitter-cli` and a C compiler, so nvim-treesitter can build parsers.
+- Python: `basedpyright` (default) or `ty`, plus `ruff`.
+- Lua: `lua-language-server` and `stylua`.
+- `fzf`, `ripgrep`, and `fd` for the fuzzy finder, search and replace.
 
 ```sh
 uv tool install basedpyright ty ruff
-sudo pacman -S tree-sitter-cli gcc lua-language-server stylua
+sudo pacman -S tree-sitter-cli gcc lua-language-server stylua fzf ripgrep fd
 ```
 
 ## Install
@@ -42,13 +43,13 @@ NVIM_APPNAME=nvim-fikri nvim
 ```text
 ├── init.lua      leader, then requires each module in order
 ├── lua
-│   ├── config    options, keymaps, autocmds, vim.pack helpers
+│   ├── config    options, keymaps, autocmds, vim.pack helpers, terminal
 │   └── plugins   one file per area: ui, editor, treesitter, lsp, completion,
-│                 format
+│                 format, navigation
 ├── after
 │   ├── lsp       per-server overrides (basedpyright, ruff)
 │   └── ftplugin  per-filetype settings (gitcommit)
-└── snippets       custom snippets for blink.cmp
+└── snippets      custom snippets for blink.cmp
 ```
 
 ## Keymaps
@@ -59,6 +60,13 @@ Leader is <kbd>Space</kbd>. Press it and pause to see every group.
 | ------------------------ | --------------------------------------- |
 | `<SPACE>w`               | Save                                    |
 | `<SPACE>qq`              | Quit all                                |
+| `<SPACE>qx`              | Save and exit                           |
+| `<SPACE>qX`              | Save and exit all                       |
+| `<SPACE>Q`               | Quit all without saving                 |
+| `<C-h/j/k/l>`            | Move to window or tmux pane             |
+| `<A-h/j/k/l>`            | Resize window (normal)                  |
+| `<C-/>`                  | Toggle floating terminal                |
+| `<SPACE>uu`              | Undo tree                               |
 | `<SPACE>\|` / `<SPACE>-` | Split right / below                     |
 | `<S-h>` / `<S-l>`        | Previous / next buffer                  |
 | `<SPACE>1` to `<SPACE>9` | Go to buffer 1 to 9                     |
@@ -84,6 +92,20 @@ Completion (blink.cmp):
 | `<C-p>` / `<C-k>` | Previous item                              |
 | `<C-space>`       | Open the menu or docs                      |
 | `<C-e>`           | Close the menu                             |
+
+Navigation (fzf-lua, nvim-tree, grug-far):
+
+| Key                       | Action                                |
+| ------------------------- | ------------------------------------- |
+| `<SPACE>ff`               | Find file                             |
+| `<SPACE>/`                | Grep project                          |
+| `<SPACE>fw`               | Grep word under cursor                |
+| `<SPACE>fb` / `<SPACE>fr` | Buffers / recent files                |
+| `<SPACE>f.`               | Resume last picker                    |
+| `<SPACE>e` / `<SPACE>E`   | Toggle explorer / reveal current file |
+| `<SPACE>sr` / `<SPACE>sf` | Replace in project / file             |
+| `<SPACE>xd` / `<SPACE>xD` | Diagnostics in file / workspace       |
+| `grr` / `gri`             | References / implementations          |
 
 ## Python
 
