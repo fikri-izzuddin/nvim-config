@@ -2,11 +2,17 @@ local map = vim.keymap.set
 -- map("n", "<LEADER>", "<CMD><CR>", { desc = "" })
 
 map("n", "<LEADER>w", "<CMD>write<CR>", { desc = "Save" })
+map("n", "<LEADER>qx", "<CMD>xit<CR>", { desc = "Save and exit" })
+map("n", "<LEADER>qX", "<CMD>xall<CR>", { desc = "Save and exit all" })
 map("n", "<LEADER>qq", "<CMD>quitall<CR>", { desc = "Quit all" })
+map("n", "<LEADER>Q", "<CMD>quitall!<CR>", { desc = "Quit all without saving" })
+
 map("n", "<ESC>", "<CMD>nohlsearch<CR><ESC>", { desc = "Clear search highlight" })
 map("t", "<ESC><ESC>", "<C-\\><C-n>", { desc = "Leave terminal mode" })
+
 map("n", "<LEADER>|", "<CMD>vsplit<CR>", { desc = "Split right" })
 map("n", "<LEADER>-", "<CMD>split<CR>", { desc = "Split below" })
+
 map("n", "<LEADER>uu", "<CMD>Undotree<CR>", { desc = "Undo tree" })
 
 -- Alt+j/k moves lines in insert and visual mode. Normal mode belongs to smart-splits
@@ -15,7 +21,7 @@ map("i", "<A-k>", "<ESC><CMD>m .-2<CR>==gi", { desc = "Move line up" })
 map("x", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 map("x", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
--- Plugins (<LEADER>p)
+-- Plugins
 map("n", "<LEADER>pu", function()
     vim.pack.update()
 end, { desc = "Update plugins" })
